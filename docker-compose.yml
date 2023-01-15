@@ -5,10 +5,9 @@ services:
     container_name: elasticsearch
     image: elasticsearch:8.6.0
     environment:
+      - xpack.security.enabled=false
       - discovery.type=single-node
       - ingest.geoip.downloader.enabled=false
-      - xpack.security.enabled=false
-      - xpack.security.authc.api_key.enabled=false
     ports:
       - 9200:9200
       - 9300:9300
