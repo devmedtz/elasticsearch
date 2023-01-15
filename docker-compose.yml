@@ -29,6 +29,18 @@ services:
       - elasticsearch
     ports:
       - 5601:5601
+  
+  logstash:
+    container_name: logstash
+    image: logstash:8.6.0
+    volumes:
+      - elastic:/usr/share/logstash
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+    ports:
+      - 9600:9600
 
 
 volumes:
